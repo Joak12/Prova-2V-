@@ -77,7 +77,7 @@ def cadastro():
 def dash():
     usu_exe = str(current_user._id)
     cursor = get_cursor()
-    cursor.execute("SELECT exe_id,exe_nome,exe_descricao,exe_fun_id FROM tb_exercicios WHERE exe_fun_id = %s", (usu_exe,))
+    cursor.execute("SELECT exe_id,exe_nome,exe_descricao,exe_usu_id FROM tb_exercicios WHERE exe_usu_id = %s", (usu_exe,))
     exercicios = cursor.fetchall()
     print(exercicios)
     
@@ -93,7 +93,7 @@ def novo_exe():
           usu_exe = current_user._id
 
           cursor = get_cursor()
-          cursor.execute("INSERT INTO tb_exercicios(exe_nome, exe_descricao, exe_fun_id) VALUES (%s, %s, %s)", (exe_nome, exe_descricao, usu_exe))
+          cursor.execute("INSERT INTO tb_exercicios(exe_nome, exe_descricao, exe_usu_id) VALUES (%s, %s, %s)", (exe_nome, exe_descricao, usu_exe))
           commit_con()
           return redirect(url_for('dash'))
 
