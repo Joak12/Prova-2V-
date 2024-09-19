@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    Benvenuto
+{% endblock %}
+
+{% block barra_navegacao %}
+<h1>Bem vindo<h1>
+<a href="{{url_for('login')}}">Login</a>
+<a href="{{url_for('cadastro')}}">Cadastre-se</a>
+{% endblock %}
+
+{% block conteudo %}
+{% endblock %}
