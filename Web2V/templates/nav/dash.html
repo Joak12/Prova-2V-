@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    Bem-vindo aos Exercícios
+{% endblock %}
+
+{% block barra_navegacao %}
+<a href="{{url_for('novo_exe')}}">Cadastrar Novo Exercício</a>
+<a href="{{url_for('logout')}}">Sair</a>
+{% endblock %}
+
+{% block conteudo %}
+<ul>
+    {% for exercicio in exercicios %}
+    <li>
+        Exercicio: {{exercicio['exe_nome']}}
+    </li>
+    <li>
+        Descrição: {{exercicio['exe_descricao']}}
+    {% endfor %}
+</ul>
+{% endblock %}

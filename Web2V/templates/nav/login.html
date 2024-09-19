@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    Fazer Login
+{% endblock %}
+
+{% block conteudo %}
+    <h1>Faça seu login</h1>
+    <form action="{{ url_for('login') }}" method="POST">
+        <input type="text" name="matricula" placeholder="matricula">
+        <input type="password" name="senha" placeholder="Senha">
+        <input type="submit">
+    </form>
+
+    {% with avisos = get_flashed_messages() %}
+        {% if avisos %}
+            <ul>
+            {% for aviso in avisos %}
+                <li>{{ aviso|safe }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}
+
